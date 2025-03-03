@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv'
 
+
+dotenv.config({path:'../.env'})
 const connectDB = async ()=>{
     try {
-       await mongoose.connect("mongodb://localhost:27017/submitReviews",{
+       await mongoose.connect(process.env.MONGO_URL,{
         // useNewUrlParser:true,
         // useUniFiedTopology:true
        });
